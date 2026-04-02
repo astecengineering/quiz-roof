@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///C:/Users/User/Downloads/quiz-factory-roof-risk.html -->
+<html lang="th"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>เช็คฟรี! โรงงานคุณเสี่ยงรั่วหรือไม่ในหน้าฝน?</title>
+<link href="./เช็คฟรี! โรงงานคุณเสี่ยงรั่วหรือไม่ในหน้าฝน__files/css2" rel="stylesheet">
+<style>
+:root {
+  --blue-900: #0c1929;
+  --blue-800: #122340;
+  --blue-700: #1a3158;
+  --blue-600: #1e3a6a;
+  --blue-500: #2563eb;
+  --blue-400: #3b82f6;
+  --blue-300: #60a5fa;
+  --orange-500: #f97316;
+  --orange-400: #fb923c;
+  --orange-300: #fdba74;
+  --red-500: #ef4444;
+  --red-400: #f87171;
+  --yellow-500: #eab308;
+  --yellow-400: #facc15;
+  --green-500: #22c55e;
+  --green-400: #4ade80;
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'IBM Plex Sans Thai', 'Noto Sans Thai', sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-800);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ===== HERO / INTRO SCREEN ===== */
+.hero-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(165deg, var(--blue-900) 0%, var(--blue-700) 40%, var(--blue-600) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(249,115,22,0.1) 0%, transparent 50%);
+  animation: driftBg 20s ease-in-out infinite alternate;
+}
+
+@keyframes driftBg {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-5%, 5%); }
+}
+
+/* Rain effect */
+.rain-container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.raindrop {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(transparent, rgba(96,165,250,0.4));
+  animation: rain linear infinite;
+  opacity: 0;
+}
+@keyframes rain {
+  0% { transform: translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 380px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(249,115,22,0.15);
+  border: 1px solid rgba(249,115,22,0.3);
+  color: var(--orange-300);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.6s ease;
+}
+
+.hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  animation: fadeInUp 0.7s ease 0.1s both;
+}
+.hero-icon svg { width: 100%; height: 100%; }
+
+.hero-title {
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 16px;
+  animation: fadeInUp 0.7s ease 0.2s both;
+}
+.hero-title .highlight {
+  color: var(--orange-400);
+  position: relative;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--blue-300);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.7s ease 0.3s both;
+}
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 36px;
+  animation: fadeInUp 0.7s ease 0.35s both;
+}
+.hero-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.hero-feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.hero-feature-text {
+  font-size: 11px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+.btn-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--orange-500), #e85d04);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 0 rgba(249,115,22,0.3);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.7s ease 0.45s both, pulse 2s ease-in-out 2s infinite;
+}
+.btn-start:active { transform: scale(0.97); }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 0 rgba(249,115,22,0.3); }
+  50% { box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 10px rgba(249,115,22,0); }
+}
+
+.hero-note {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 16px;
+  animation: fadeInUp 0.7s ease 0.55s both;
+}
+
+/* ===== QUIZ SCREEN ===== */
+.quiz-screen {
+  display: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--gray-50);
+  padding-bottom: 100px;
+}
+
+.quiz-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 12px 20px;
+}
+.quiz-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.quiz-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.quiz-step-label {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+.progress-bar {
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-500), var(--orange-500));
+  border-radius: 100px;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quiz-body {
+  padding: 24px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.question-card {
+  display: none;
+  animation: slideIn 0.4s ease;
+}
+.question-card.active { display: block; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.question-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--blue-500);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.question-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-800);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-700);
+  text-align: left;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.option-btn:active { transform: scale(0.98); }
+.option-btn.selected {
+  border-color: var(--blue-500);
+  background: rgba(37,99,235,0.04);
+  color: var(--blue-600);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.option-radio {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.option-btn.selected .option-radio {
+  border-color: var(--blue-500);
+  background: var(--blue-500);
+}
+.option-btn.selected .option-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+/* Checkbox style for multi-select */
+.option-checkbox {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.option-btn.selected .option-checkbox {
+  border-color: var(--blue-500);
+  background: var(--blue-500);
+}
+.option-btn.selected .option-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quiz-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+.btn-back {
+  padding: 14px 20px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-next {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--blue-500);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.btn-next.enabled {
+  opacity: 1;
+  pointer-events: auto;
+}
+.btn-next:active { transform: scale(0.98); }
+
+/* ===== LEAD FORM SCREEN ===== */
+.lead-screen {
+  display: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--gray-50);
+  padding-bottom: 40px;
+}
+
+.lead-header {
+  background: linear-gradient(165deg, var(--blue-900) 0%, var(--blue-700) 100%);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.result-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  animation: bounceIn 0.5s ease;
+}
+.result-preview-badge.high { background: rgba(239,68,68,0.15); color: var(--red-400); border: 1px solid rgba(239,68,68,0.3); }
+.result-preview-badge.medium { background: rgba(234,179,8,0.15); color: var(--yellow-400); border: 1px solid rgba(234,179,8,0.3); }
+.result-preview-badge.low { background: rgba(34,197,94,0.15); color: var(--green-400); border: 1px solid rgba(34,197,94,0.3); }
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.lead-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.lead-subtitle {
+  font-size: 14px;
+  color: var(--blue-300);
+  line-height: 1.6;
+}
+
+.lead-form-container {
+  padding: 24px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.lead-benefits {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.lead-benefits-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+.lead-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+}
+.lead-benefit-check {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.1);
+  color: var(--green-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.lead-benefit-text {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.form-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-md);
+}
+.form-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 6px;
+}
+.form-label .required {
+  color: var(--red-500);
+}
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--gray-800);
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+}
+.form-input::placeholder { color: var(--gray-400); }
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--orange-500), #e85d04);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 4px 16px rgba(249,115,22,0.3);
+  transition: all 0.2s;
+}
+.btn-submit:active { transform: scale(0.98); }
+
+.btn-expert {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: var(--blue-500);
+  border: 2px solid var(--blue-500);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+.btn-expert:active { background: rgba(37,99,235,0.04); }
+
+.form-privacy {
+  font-size: 11px;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* ===== RESULT SCREEN ===== */
+.result-screen {
+  display: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--gray-50);
+  padding-bottom: 40px;
+}
+
+.result-hero {
+  padding: 40px 24px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.result-hero.high { background: linear-gradient(165deg, #450a0a, #7f1d1d, #991b1b); }
+.result-hero.medium { background: linear-gradient(165deg, #422006, #713f12, #854d0e); }
+.result-hero.low { background: linear-gradient(165deg, #052e16, #14532d, #166534); }
+
+.result-emoji {
+  font-size: 56px;
+  margin-bottom: 16px;
+  animation: bounceIn 0.6s ease;
+}
+
+.result-level {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.result-summary {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.result-body {
+  padding: 24px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.score-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+.score-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+.score-number {
+  font-size: 48px;
+  font-weight: 900;
+}
+.score-number.high { color: var(--red-500); }
+.score-number.medium { color: var(--yellow-500); }
+.score-number.low { color: var(--green-500); }
+.score-max { font-size: 20px; color: var(--gray-400); font-weight: 600; }
+
+.detail-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.detail-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+.detail-dot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+.detail-dot.red { background: var(--red-500); }
+.detail-dot.yellow { background: var(--yellow-500); }
+.detail-dot.green { background: var(--green-500); }
+
+.cta-card {
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+.cta-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.cta-card-text {
+  font-size: 13px;
+  color: var(--blue-300);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.btn-cta-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  background: #06C755;
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.btn-cta-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: var(--blue-300);
+  border: 2px solid rgba(96,165,250,0.3);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utility */
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO SCREEN ===== -->
+<div class="hero-screen" id="heroScreen">
+  <div class="rain-container" id="rainContainer"><div class="raindrop" style="left: 97.4156%; height: 39.2092px; animation-duration: 1.57345s; animation-delay: 2.70882s;"></div><div class="raindrop" style="left: 15.9684%; height: 24.8842px; animation-duration: 1.14748s; animation-delay: 2.58404s;"></div><div class="raindrop" style="left: 61.2732%; height: 30.7874px; animation-duration: 1.50457s; animation-delay: 1.75907s;"></div><div class="raindrop" style="left: 20.8313%; height: 43.7342px; animation-duration: 1.0546s; animation-delay: 2.66233s;"></div><div class="raindrop" style="left: 68.7055%; height: 17.5219px; animation-duration: 1.25414s; animation-delay: 1.9438s;"></div><div class="raindrop" style="left: 3.95537%; height: 40.1096px; animation-duration: 0.847345s; animation-delay: 0.757088s;"></div><div class="raindrop" style="left: 80.081%; height: 39.9085px; animation-duration: 1.07894s; animation-delay: 2.05462s;"></div><div class="raindrop" style="left: 82.5%; height: 41.4219px; animation-duration: 1.12095s; animation-delay: 1.86766s;"></div><div class="raindrop" style="left: 33.831%; height: 35.0759px; animation-duration: 0.847144s; animation-delay: 0.793579s;"></div><div class="raindrop" style="left: 36.3397%; height: 27.3845px; animation-duration: 1.21106s; animation-delay: 0.967194s;"></div><div class="raindrop" style="left: 68.8921%; height: 33.9649px; animation-duration: 0.80859s; animation-delay: 0.700123s;"></div><div class="raindrop" style="left: 50.8601%; height: 26.4749px; animation-duration: 0.849917s; animation-delay: 0.229757s;"></div><div class="raindrop" style="left: 30.3926%; height: 26.4177px; animation-duration: 1.13021s; animation-delay: 2.87687s;"></div><div class="raindrop" style="left: 67.1836%; height: 37.4861px; animation-duration: 0.881517s; animation-delay: 1.57896s;"></div><div class="raindrop" style="left: 22.0944%; height: 25.0602px; animation-duration: 1.17757s; animation-delay: 0.84982s;"></div><div class="raindrop" style="left: 96.8507%; height: 31.8019px; animation-duration: 1.57282s; animation-delay: 0.195139s;"></div><div class="raindrop" style="left: 35.6154%; height: 20.8536px; animation-duration: 1.14071s; animation-delay: 0.698634s;"></div><div class="raindrop" style="left: 17.4452%; height: 15.4566px; animation-duration: 1.31972s; animation-delay: 0.265341s;"></div><div class="raindrop" style="left: 83.411%; height: 19.2662px; animation-duration: 1.55833s; animation-delay: 2.31336s;"></div><div class="raindrop" style="left: 18.8581%; height: 44.4672px; animation-duration: 0.946987s; animation-delay: 2.17136s;"></div><div class="raindrop" style="left: 18.6901%; height: 31.549px; animation-duration: 1.58801s; animation-delay: 1.22486s;"></div><div class="raindrop" style="left: 81.1163%; height: 25.9561px; animation-duration: 1.31444s; animation-delay: 1.18074s;"></div><div class="raindrop" style="left: 98.6673%; height: 36.9057px; animation-duration: 1.36159s; animation-delay: 0.780126s;"></div><div class="raindrop" style="left: 43.1539%; height: 24.5444px; animation-duration: 0.990954s; animation-delay: 0.911986s;"></div><div class="raindrop" style="left: 18.2821%; height: 30.3247px; animation-duration: 1.64345s; animation-delay: 1.03944s;"></div><div class="raindrop" style="left: 71.4649%; height: 31.8721px; animation-duration: 1.05647s; animation-delay: 1.98607s;"></div><div class="raindrop" style="left: 93.4182%; height: 23.1437px; animation-duration: 1.60014s; animation-delay: 2.32303s;"></div><div class="raindrop" style="left: 61.4134%; height: 19.9635px; animation-duration: 1.59287s; animation-delay: 1.50243s;"></div><div class="raindrop" style="left: 39.7041%; height: 40.4948px; animation-duration: 0.999241s; animation-delay: 0.261077s;"></div><div class="raindrop" style="left: 26.4283%; height: 42.9515px; animation-duration: 1.79802s; animation-delay: 0.795958s;"></div><div class="raindrop" style="left: 8.21428%; height: 27.8193px; animation-duration: 0.852296s; animation-delay: 0.184407s;"></div><div class="raindrop" style="left: 83.8791%; height: 22.5036px; animation-duration: 1.51558s; animation-delay: 0.317932s;"></div><div class="raindrop" style="left: 50.6284%; height: 28.8336px; animation-duration: 1.54551s; animation-delay: 2.37054s;"></div><div class="raindrop" style="left: 39.1123%; height: 31.6406px; animation-duration: 0.992303s; animation-delay: 0.387674s;"></div><div class="raindrop" style="left: 78.4526%; height: 35.8753px; animation-duration: 1.02888s; animation-delay: 0.805149s;"></div><div class="raindrop" style="left: 17.4441%; height: 39.9178px; animation-duration: 1.76174s; animation-delay: 2.387s;"></div><div class="raindrop" style="left: 6.1086%; height: 42.1468px; animation-duration: 1.2415s; animation-delay: 2.38114s;"></div><div class="raindrop" style="left: 0.929507%; height: 17.9432px; animation-duration: 1.65513s; animation-delay: 2.2809s;"></div><div class="raindrop" style="left: 40.5959%; height: 17.5263px; animation-duration: 1.66943s; animation-delay: 1.45965s;"></div><div class="raindrop" style="left: 54.3855%; height: 23.8997px; animation-duration: 1.16492s; animation-delay: 0.520959s;"></div></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ ฟรี! ใช้เวลาไม่ถึง 2 นาที</div>
+    
+    <div class="hero-icon">
+      <svg viewBox="0 0 80 80" fill="none">
+        <rect width="80" height="80" rx="20" fill="url(#iconGrad)" fill-opacity="0.15"></rect>
+        <path d="M24 52V32L40 20L56 32V52H48V42H32V52H24Z" stroke="#60a5fa" stroke-width="2.5" stroke-linejoin="round"></path>
+        <path d="M36 52V46H44V52" stroke="#60a5fa" stroke-width="2.5" stroke-linejoin="round"></path>
+        <path d="M30 26L26 29" stroke="#fb923c" stroke-width="2" stroke-linecap="round" opacity="0.6"></path>
+        <circle cx="50" cy="16" r="2" fill="#fb923c" opacity="0.4"></circle>
+        <path d="M52 22L54 26" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.5"></path>
+        <!-- rain drops -->
+        <path d="M18 14L17 20" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"></path>
+        <path d="M62 10L61 16" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"></path>
+        <path d="M40 8L39 14" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"></path>
+        <defs>
+          <lineargradient id="iconGrad" x1="0" y1="0" x2="80" y2="80">
+            <stop stop-color="#3b82f6"></stop>
+            <stop offset="1" stop-color="#f97316"></stop>
+          </lineargradient>
+        </defs>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">
+      เช็คฟรี!<br>
+      โรงงานคุณ<span class="highlight">เสี่ยงรั่ว</span><br>
+      หรือไม่ในหน้าฝน?
+    </h1>
+
+    <p class="hero-subtitle">
+      ตอบคำถาม 10 ข้อ รับรายงานวิเคราะห์ความเสี่ยง<br>พร้อมคำแนะนำแก้ไขจากผู้เชี่ยวชาญ ฟรี!
+    </p>
+
+    <div class="hero-features">
+      <div class="hero-feature">
+        <div class="hero-feature-icon">🏭</div>
+        <div class="hero-feature-text">วิเคราะห์เฉพาะทาง</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">📊</div>
+        <div class="hero-feature-text">ผลทันที</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">🔧</div>
+        <div class="hero-feature-text">แนะนำแก้ไข</div>
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="startQuiz()">
+      เริ่มทำแบบทดสอบ →
+    </button>
+
+    <p class="hero-note">🔒 ข้อมูลของคุณปลอดภัย ไม่เผยแพร่สู่สาธารณะ</p>
+  </div>
+</div>
+
+<!-- ===== QUIZ SCREEN ===== -->
+<div class="quiz-screen" id="quizScreen">
+  <div class="quiz-header">
+    <div class="quiz-header-inner">
+      <div class="quiz-section-label" id="sectionLabel">Section 1</div>
+      <div class="quiz-step-label" id="stepLabel">ข้อ 1/10</div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+    </div>
+  </div>
+
+  <div class="quiz-body" id="quizBody">
+    <!-- Questions will be injected here -->
+  </div>
+
+  <div class="quiz-nav">
+    <button class="btn-back hidden" id="btnBack" onclick="prevQuestion()">← ย้อน</button>
+    <button class="btn-next" id="btnNext" onclick="nextQuestion()">ถัดไป →</button>
+  </div>
+</div>
+
+<!-- ===== LEAD FORM SCREEN ===== -->
+<div class="lead-screen" id="leadScreen">
+  <div class="lead-header">
+    <div class="result-preview-badge" id="previewBadge"></div>
+    <h2 class="lead-title">ผลวิเคราะห์ของคุณพร้อมแล้ว!</h2>
+    <p class="lead-subtitle">กรอกข้อมูลด้านล่างเพื่อรับรายงานวิเคราะห์<br>พร้อมคำแนะนำแก้ไขเฉพาะจุด ฟรี!</p>
+  </div>
+  
+  <div class="lead-form-container">
+    <div class="lead-benefits">
+      <div class="lead-benefits-title">📋 สิ่งที่คุณจะได้รับ:</div>
+      <div class="lead-benefit-item">
+        <div class="lead-benefit-check">✓</div>
+        <div class="lead-benefit-text">ผลวิเคราะห์ระดับความเสี่ยงโดยละเอียด</div>
+      </div>
+      <div class="lead-benefit-item">
+        <div class="lead-benefit-check">✓</div>
+        <div class="lead-benefit-text">คำแนะนำแก้ไขเฉพาะจุดตามสภาพหลังคา</div>
+      </div>
+      <div class="lead-benefit-item">
+        <div class="lead-benefit-check">✓</div>
+        <div class="lead-benefit-text">ประเมินค่าใช้จ่ายเบื้องต้นในการซ่อม</div>
+      </div>
+      <div class="lead-benefit-item">
+        <div class="lead-benefit-check">✓</div>
+        <div class="lead-benefit-text">โปรโมชันพิเศษสำหรับการตรวจเช็คก่อนฤดูฝน</div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-title">รับรายงานวิเคราะห์ + แนะนำแก้ไขฟรี</div>
+      <div class="form-group">
+        <label class="form-label">ชื่อบริษัท <span class="required">*</span></label>
+        <input type="text" class="form-input" id="companyName" placeholder="เช่น บริษัท ABC จำกัด">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ชื่อผู้ติดต่อ <span class="required">*</span></label>
+        <input type="text" class="form-input" id="contactName" placeholder="ชื่อ-นามสกุล">
+      </div>
+      <div class="form-group">
+        <label class="form-label">เบอร์โทร <span class="required">*</span></label>
+        <input type="tel" class="form-input" id="phone" placeholder="08X-XXX-XXXX">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" id="email" placeholder="email@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Line ID</label>
+        <input type="text" class="form-input" id="lineId" placeholder="@lineid หรือ เบอร์โทร">
+      </div>
+
+      <button class="btn-submit" onclick="submitLead()">🎯 รับผลวิเคราะห์ฟรีทันที</button>
+      <button class="btn-expert" onclick="submitLead(&#39;callback&#39;)">📞 ให้ผู้เชี่ยวชาญติดต่อกลับ</button>
+      <p class="form-privacy">🔒 ข้อมูลของคุณปลอดภัย เราจะติดต่อเฉพาะเรื่องผลวิเคราะห์เท่านั้น</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RESULT SCREEN ===== -->
+<div class="result-screen" id="resultScreen">
+  <div class="result-hero" id="resultHero">
+    <div class="result-emoji" id="resultEmoji"></div>
+    <div class="result-level" id="resultLevel"></div>
+    <div class="result-summary" id="resultSummary"></div>
+  </div>
+
+  <div class="result-body" id="resultBody">
+    <!-- Dynamic content -->
+  </div>
+</div>
+
+<script>
+// ===== QUIZ DATA =====
+const sections = [
+  { name: 'ข้อมูลเบื้องต้น', label: 'Section 1' },
+  { name: 'อายุและสภาพหลังคา', label: 'Section 2' },
+  { name: 'ปัญหาที่เคยเกิดขึ้น', label: 'Section 3' },
+  { name: 'การบำรุงรักษา', label: 'Section 4' },
+  { name: 'ความเสี่ยงช่วงหน้าฝน', label: 'Section 5' },
+];
+
+const questions = [
+  // Section 1
+  {
+    section: 0, q: 'ประเภทโรงงานของคุณคืออะไร?', type: 'single',
+    options: ['อาหาร / เครื่องดื่ม', 'อุตสาหกรรมหนัก', 'คลังสินค้า', 'อื่นๆ'],
+    scores: [2, 1, 1, 1]
+  },
+  {
+    section: 0, q: 'พื้นที่หลังคาโดยประมาณ', type: 'single',
+    options: ['น้อยกว่า 1,000 ตร.ม.', '1,000 – 5,000 ตร.ม.', 'มากกว่า 5,000 ตร.ม.'],
+    scores: [1, 2, 3]
+  },
+  // Section 2
+  {
+    section: 1, q: 'หลังคาของคุณใช้งานมาแล้วกี่ปี?', type: 'single',
+    options: ['น้อยกว่า 3 ปี', '3–10 ปี', 'มากกว่า 10 ปี'],
+    scores: [0, 2, 4]
+  },
+  {
+    section: 1, q: 'เคยซ่อมหลังคาในช่วง 2 ปีที่ผ่านมาไหม?', type: 'single',
+    options: ['ไม่เคย', 'เคย 1 ครั้ง', 'เคยหลายครั้ง'],
+    scores: [1, 2, 4]
+  },
+  // Section 3
+  {
+    section: 2, q: 'เคยมีน้ำรั่วซึมในโรงงานหรือไม่?', type: 'single',
+    options: ['ไม่เคย', 'เคยเล็กน้อย', 'เคยหนัก / หลายจุด'],
+    scores: [0, 2, 5]
+  },
+  {
+    section: 2, q: 'จุดที่มักเกิดปัญหาคือบริเวณไหน?', type: 'multi', hint: '(เลือกได้หลายข้อ)',
+    options: ['รอยต่อแผ่นหลังคา', 'สกรู / น็อต', 'รางน้ำ', 'Skylight / ช่องแสง', 'ไม่แน่ใจ'],
+    scores: [2, 2, 2, 2, 1]
+  },
+  // Section 4
+  {
+    section: 3, q: 'มีการตรวจเช็คหลังคาเป็นประจำหรือไม่?', type: 'single',
+    options: ['ไม่มีเลย', 'ปีละครั้ง', 'มากกว่าปีละครั้ง'],
+    scores: [4, 1, 0]
+  },
+  {
+    section: 3, q: 'มีการทำความสะอาดรางน้ำหรือไม่?', type: 'single',
+    options: ['ไม่เคย', 'ปีละครั้ง', 'สม่ำเสมอ'],
+    scores: [3, 1, 0]
+  },
+  // Section 5
+  {
+    section: 4, q: 'เมื่อฝนตกหนัก คุณเคยเจอปัญหาเหล่านี้ไหม?', type: 'multi', hint: '(เลือกได้หลายข้อ)',
+    options: ['น้ำขังบนหลังคา', 'น้ำไหลย้อน', 'น้ำหยดจากฝ้า', 'ไม่เคยเจอ'],
+    scores: [3, 3, 3, 0]
+  },
+  {
+    section: 4, q: 'หากเกิดน้ำรั่ว จะกระทบกับธุรกิจคุณแค่ไหน?', type: 'single',
+    options: ['เล็กน้อย', 'ปานกลาง', 'รุนแรง (ต้องหยุดผลิต)'],
+    scores: [1, 2, 4]
+  },
+];
+
+let currentQ = 0;
+let answers = new Array(questions.length).fill(null);
+
+// ===== RAIN EFFECT =====
+function createRain() {
+  const container = document.getElementById('rainContainer');
+  for (let i = 0; i < 40; i++) {
+    const drop = document.createElement('div');
+    drop.className = 'raindrop';
+    drop.style.left = Math.random() * 100 + '%';
+    drop.style.height = (Math.random() * 30 + 15) + 'px';
+    drop.style.animationDuration = (Math.random() * 1 + 0.8) + 's';
+    drop.style.animationDelay = (Math.random() * 3) + 's';
+    container.appendChild(drop);
+  }
+}
+createRain();
+
+// ===== QUIZ LOGIC =====
+function startQuiz() {
+  document.getElementById('heroScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  const sec = sections[q.section];
+  
+  document.getElementById('sectionLabel').textContent = sec.label + ': ' + sec.name;
+  document.getElementById('stepLabel').textContent = `ข้อ ${currentQ + 1}/${questions.length}`;
+  document.getElementById('progressFill').style.width = ((currentQ + 1) / questions.length * 100) + '%';
+  
+  const isMulti = q.type === 'multi';
+  const hint = q.hint ? `<span style="font-size:13px;color:var(--gray-400);font-weight:400"> ${q.hint}</span>` : '';
+  
+  let html = `<div class="question-card active">
+    <div class="question-number">${currentQ + 1}</div>
+    <div class="question-text">${q.q}${hint}</div>
+    <div class="options-list">`;
+    
+  q.options.forEach((opt, i) => {
+    const indicator = isMulti ? 'option-checkbox' : 'option-radio';
+    const selected = isMulti 
+      ? (Array.isArray(answers[currentQ]) && answers[currentQ].includes(i)) 
+      : answers[currentQ] === i;
+    html += `<button class="option-btn${selected ? ' selected' : ''}" onclick="selectOption(${i}, ${isMulti})">
+      <div class="${indicator}"></div>
+      <span>${opt}</span>
+    </button>`;
+  });
+  
+  html += `</div></div>`;
+  document.getElementById('quizBody').innerHTML = html;
+
+  // Nav buttons
+  document.getElementById('btnBack').classList.toggle('hidden', currentQ === 0);
+  
+  const btnNext = document.getElementById('btnNext');
+  const hasAnswer = isMulti 
+    ? (Array.isArray(answers[currentQ]) && answers[currentQ].length > 0)
+    : answers[currentQ] !== null;
+  btnNext.classList.toggle('enabled', hasAnswer);
+  btnNext.textContent = currentQ === questions.length - 1 ? 'ดูผลลัพธ์ →' : 'ถัดไป →';
+}
+
+function selectOption(idx, isMulti) {
+  if (isMulti) {
+    if (!Array.isArray(answers[currentQ])) answers[currentQ] = [];
+    const arr = answers[currentQ];
+    const pos = arr.indexOf(idx);
+    if (pos > -1) arr.splice(pos, 1);
+    else arr.push(idx);
+  } else {
+    answers[currentQ] = idx;
+  }
+  renderQuestion();
+  
+  // Auto-advance for single select (with brief delay)
+  if (!isMulti) {
+    setTimeout(() => { nextQuestion(); }, 350);
+  }
+}
+
+function nextQuestion() {
+  const q = questions[currentQ];
+  const isMulti = q.type === 'multi';
+  const hasAnswer = isMulti 
+    ? (Array.isArray(answers[currentQ]) && answers[currentQ].length > 0)
+    : answers[currentQ] !== null;
+    
+  if (!hasAnswer) return;
+  
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showLeadForm();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+// ===== SCORING =====
+function calculateScore() {
+  let total = 0;
+  answers.forEach((ans, i) => {
+    const q = questions[i];
+    if (Array.isArray(ans)) {
+      ans.forEach(a => { total += q.scores[a]; });
+    } else if (ans !== null) {
+      total += q.scores[ans];
+    }
+  });
+  return total;
+}
+
+function getRiskLevel(score) {
+  if (score >= 18) return 'high';
+  if (score >= 10) return 'medium';
+  return 'low';
+}
+
+// ===== LEAD FORM =====
+function showLeadForm() {
+  const score = calculateScore();
+  const level = getRiskLevel(score);
+  
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('leadScreen').style.display = 'block';
+  
+  const badge = document.getElementById('previewBadge');
+  badge.className = 'result-preview-badge ' + level;
+  
+  const labels = { high: '🔴 เสี่ยงสูง', medium: '🟡 เสี่ยงปานกลาง', low: '🟢 เสี่ยงต่ำ' };
+  badge.textContent = labels[level];
+  
+  window.scrollTo({ top: 0 });
+}
+
+// ===== SUBMIT LEAD =====
+// ============================================================
+// ⚙️ ตั้งค่า Make.com Webhook URL ตรงนี้
+// ============================================================
+const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/e5etorm8zm2vwqfybjxs33vwadfhccsf';
+// เปลี่ยนเป็น URL จริงจาก Make.com เช่น:
+// const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/xxxxxxxxxxxxx';
+// ============================================================
+
+let isSubmitting = false;
+
+function submitLead(type) {
+  if (isSubmitting) return;
+  
+  const company = document.getElementById('companyName').value.trim();
+  const contact = document.getElementById('contactName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+
+  if (!company || !contact || !phone) {
+    alert('กรุณากรอกข้อมูลที่จำเป็น (ชื่อบริษัท, ชื่อผู้ติดต่อ, เบอร์โทร)');
+    return;
+  }
+
+  // Flatten answers for Google Sheets (each question = 1 column)
+  const flatAnswers = {};
+  answers.forEach((a, i) => {
+    const q = questions[i];
+    flatAnswers[`q${i + 1}_question`] = q.q;
+    flatAnswers[`q${i + 1}_answer`] = Array.isArray(a) 
+      ? a.map(x => q.options[x]).join(', ')
+      : q.options[a];
+    flatAnswers[`q${i + 1}_score`] = Array.isArray(a)
+      ? a.reduce((sum, x) => sum + q.scores[x], 0)
+      : q.scores[a];
+  });
+
+  const score = calculateScore();
+  const level = getRiskLevel(score);
+  const levelLabels = { high: 'เสี่ยงสูง', medium: 'เสี่ยงปานกลาง', low: 'เสี่ยงต่ำ' };
+
+  const leadData = {
+    // ข้อมูลลูกค้า
+    company,
+    contact,
+    phone,
+    email: document.getElementById('email').value.trim(),
+    line_id: document.getElementById('lineId').value.trim(),
+    
+    // ผลคะแนน
+    total_score: score,
+    risk_level: levelLabels[level],
+    request_type: type === 'callback' ? 'ให้ผู้เชี่ยวชาญติดต่อกลับ' : 'รับผลวิเคราะห์ฟรี',
+    
+    // คำตอบแต่ละข้อ (flat สำหรับ Google Sheets)
+    ...flatAnswers,
+    
+    // metadata
+    submitted_at: new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' }),
+    source: 'LINE OA Quiz'
+  };
+
+  // UI: แสดง loading
+  isSubmitting = true;
+  const btnSubmit = document.querySelector('.btn-submit');
+  const btnExpert = document.querySelector('.btn-expert');
+  const originalSubmitText = btnSubmit.textContent;
+  const originalExpertText = btnExpert.textContent;
+  btnSubmit.textContent = '⏳ กำลังส่งข้อมูล...';
+  btnSubmit.style.opacity = '0.7';
+  btnExpert.style.opacity = '0.5';
+  btnExpert.style.pointerEvents = 'none';
+
+  // ส่งข้อมูลไป Make.com Webhook
+  fetch(MAKE_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(leadData)
+  })
+  .then(res => {
+    // Make.com จะ return 200 ถ้า OK
+    console.log('✅ Lead sent to Make.com:', res.status);
+    showResult();
+  })
+  .catch(err => {
+    console.warn('⚠️ Webhook error (showing result anyway):', err);
+    // แม้ส่งไม่สำเร็จ ก็ยังแสดงผลให้ลูกค้าดู (UX ดีกว่า)
+    showResult();
+  })
+  .finally(() => {
+    isSubmitting = false;
+    btnSubmit.textContent = originalSubmitText;
+    btnSubmit.style.opacity = '1';
+    btnExpert.style.opacity = '1';
+    btnExpert.style.pointerEvents = 'auto';
+  });
+}
+
+// ===== RESULT SCREEN =====
+function showResult() {
+  const score = calculateScore();
+  const level = getRiskLevel(score);
+  
+  document.getElementById('leadScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  
+  const hero = document.getElementById('resultHero');
+  hero.className = 'result-hero ' + level;
+  
+  const config = {
+    high: {
+      emoji: '🔴',
+      title: 'เสี่ยงสูง!',
+      summary: 'โรงงานของคุณมีโอกาสเกิดน้ำรั่วซึมสูงในหน้าฝน ควรตรวจเช็คอย่างเร่งด่วน',
+      recs: [
+        'ควรนัดตรวจเช็คหลังคาโดยผู้เชี่ยวชาญภายใน 2 สัปดาห์',
+        'เน้นตรวจจุดรอยต่อ สกรู และรางน้ำเป็นพิเศษ',
+        'พิจารณาทำ Waterproofing เพิ่มเติมในจุดเสี่ยง',
+        'วางแผนซ่อมบำรุงก่อนฤดูฝน',
+      ]
+    },
+    medium: {
+      emoji: '🟡',
+      title: 'เสี่ยงปานกลาง',
+      summary: 'มีจุดเสี่ยงบางส่วนที่ควรได้รับการดูแล ก่อนเข้าสู่ฤดูฝน',
+      recs: [
+        'แนะนำตรวจเช็คหลังคาก่อนฤดูฝน',
+        'ทำความสะอาดรางน้ำและตรวจจุดอุดตัน',
+        'เช็คสภาพสกรูและรอยต่อให้เรียบร้อย',
+        'วางแผนการบำรุงรักษาประจำปี',
+      ]
+    },
+    low: {
+      emoji: '🟢',
+      title: 'เสี่ยงต่ำ',
+      summary: 'สภาพโดยรวมยังดี แต่ก็ไม่ควรประมาท ตรวจเช็คตามรอบเพื่อป้องกัน',
+      recs: [
+        'ตรวจเช็คหลังคาตามรอบปกติ (อย่างน้อยปีละครั้ง)',
+        'ดูแลทำความสะอาดรางน้ำสม่ำเสมอ',
+        'สังเกตจุดที่อาจเสื่อมสภาพในอนาคต',
+        'จัดทำแผนบำรุงรักษาเชิงป้องกัน',
+      ]
+    }
+  };
+  
+  const c = config[level];
+  document.getElementById('resultEmoji').textContent = c.emoji;
+  document.getElementById('resultLevel').textContent = c.title;
+  document.getElementById('resultSummary').textContent = c.summary;
+  
+  let bodyHTML = `
+    <div class="score-card">
+      <div class="score-label">คะแนนความเสี่ยงของคุณ</div>
+      <div class="score-number ${level}">${score} <span class="score-max">/ 40</span></div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-title">🔧 คำแนะนำสำหรับคุณ</div>
+      ${c.recs.map(r => `
+        <div class="detail-item">
+          <div class="detail-dot ${level === 'high' ? 'red' : level === 'medium' ? 'yellow' : 'green'}"></div>
+          <span>${r}</span>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-title">📋 สรุปคำตอบของคุณ</div>
+      ${answers.map((a, i) => {
+        const q = questions[i];
+        const ansText = Array.isArray(a) 
+          ? a.map(x => q.options[x]).join(', ')
+          : q.options[a];
+        return `<div class="detail-item">
+          <div class="detail-dot ${q.scores[Array.isArray(a) ? a[0] : a] >= 3 ? 'red' : q.scores[Array.isArray(a) ? a[0] : a] >= 2 ? 'yellow' : 'green'}"></div>
+          <span><strong>${q.q}</strong><br>${ansText}</span>
+        </div>`;
+      }).join('')}
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-card-title">💬 ต้องการคำปรึกษาเพิ่มเติม?</div>
+      <div class="cta-card-text">ทีมผู้เชี่ยวชาญของเราพร้อมให้คำปรึกษา<br>และเข้าตรวจเช็คหลังคาโรงงานของคุณ</div>
+      <button class="btn-cta-line" onclick="window.open('https://line.me/R/ti/p/@astec_official')">
+        💬 แชทผ่าน LINE
+      </button>
+      <button class="btn-cta-call" onclick="window.open('tel:027147564')">
+        📞 โทรหาเรา
+      </button>
+    </div>
+  `;
+  
+  document.getElementById('resultBody').innerHTML = bodyHTML;
+  window.scrollTo({ top: 0 });
+}
+</script>
+
+
+
+</body></html>
