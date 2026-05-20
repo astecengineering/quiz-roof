@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>เช็คฟรี! โรงงานคุณเสี่ยงรั่วหรือไม่ในหน้าฝน?</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue-900: #0c1929;
@@ -45,7 +45,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
+  font-family: 'Prompt', sans-serif;
   background: var(--gray-50);
   color: var(--gray-800);
   min-height: 100vh;
@@ -57,7 +57,7 @@ body {
 .hero-screen {
   min-height: 100vh;
   min-height: 100dvh;
-  background: linear-gradient(165deg, var(--blue-900) 0%, var(--blue-700) 40%, var(--blue-600) 100%);
+  background: #080c1a url('https://astecpaints.co.th/2025/wp-content/uploads/2026/05/250e4ebe-76ff-4382-af68-005cd18dec95.png') center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,13 +71,20 @@ body {
 .hero-screen::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 80%, rgba(249,115,22,0.1) 0%, transparent 50%);
-  animation: driftBg 20s ease-in-out infinite alternate;
+  inset: 0;
+  background: rgba(8,12,26,0.55);
+  z-index: 1;
+}
+
+.hero-screen::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, rgba(8,12,26,0.95), transparent);
+  z-index: 1;
 }
 
 @keyframes driftBg {
@@ -85,31 +92,11 @@ body {
   100% { transform: translate(-5%, 5%); }
 }
 
-/* Rain effect */
-.rain-container {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.raindrop {
-  position: absolute;
-  width: 2px;
-  background: linear-gradient(transparent, rgba(96,165,250,0.4));
-  animation: rain linear infinite;
-  opacity: 0;
-}
-@keyframes rain {
-  0% { transform: translateY(-100px); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 380px;
+  max-width: 600px;
 }
 
 .hero-badge {
@@ -136,10 +123,10 @@ body {
 .hero-icon svg { width: 100%; height: 100%; }
 
 .hero-title {
-  font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
-  font-size: 28px;
+  font-family: 'Prompt', sans-serif;
+  font-size: 38px;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--white);
   margin-bottom: 16px;
   animation: fadeInUp 0.7s ease 0.2s both;
@@ -150,40 +137,61 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
-  color: var(--blue-300);
-  margin-bottom: 32px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
   animation: fadeInUp 0.7s ease 0.3s both;
+}
+.hero-subtitle strong {
+  color: var(--white);
+  font-weight: 700;
 }
 
 .hero-features {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 0;
   margin-bottom: 36px;
   animation: fadeInUp 0.7s ease 0.35s both;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .hero-feature {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 0 12px;
+  border-right: 1px solid rgba(255,255,255,0.06);
 }
+.hero-feature:last-child { border-right: none; }
 .hero-feature-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.08);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 24px;
+}
+.hero-feature-title {
+  font-size: 13px;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.3;
 }
 .hero-feature-text {
   font-size: 11px;
-  color: var(--gray-400);
-  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .btn-start {
@@ -192,30 +200,30 @@ body {
   justify-content: center;
   gap: 8px;
   width: 100%;
-  max-width: 320px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, var(--orange-500), #e85d04);
+  max-width: 380px;
+  padding: 18px 36px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5, #3b82f6);
   color: var(--white);
   font-family: inherit;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   border: none;
-  border-radius: 14px;
+  border-radius: 60px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 0 rgba(249,115,22,0.3);
+  box-shadow: 0 4px 24px rgba(124,58,237,0.4), 0 0 0 0 rgba(124,58,237,0.3);
   transition: all 0.3s ease;
-  animation: fadeInUp 0.7s ease 0.45s both, pulse 2s ease-in-out 2s infinite;
+  animation: fadeInUp 0.7s ease 0.45s both, pulseBtn 2.5s ease-in-out 2s infinite;
 }
 .btn-start:active { transform: scale(0.97); }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 0 rgba(249,115,22,0.3); }
-  50% { box-shadow: 0 4px 20px rgba(249,115,22,0.4), 0 0 0 10px rgba(249,115,22,0); }
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 4px 24px rgba(124,58,237,0.4), 0 0 0 0 rgba(124,58,237,0.3); }
+  50% { box-shadow: 0 4px 24px rgba(124,58,237,0.4), 0 0 0 12px rgba(124,58,237,0); }
 }
 
 .hero-note {
   font-size: 12px;
-  color: var(--gray-500);
+  color: rgba(255,255,255,0.35);
   margin-top: 16px;
   animation: fadeInUp 0.7s ease 0.55s both;
 }
@@ -781,7 +789,6 @@ body {
 
 <!-- ===== HERO SCREEN ===== -->
 <div class="hero-screen" id="heroScreen">
-  <div class="rain-container" id="rainContainer"></div>
   <div class="hero-content">
     <div class="hero-badge">⚡ ฟรี! ใช้เวลาไม่ถึง 2 นาที</div>
     
@@ -813,21 +820,24 @@ body {
     </h1>
 
     <p class="hero-subtitle">
-      ตอบคำถาม 10 ข้อ รับรายงานวิเคราะห์ความเสี่ยง<br>พร้อมคำแนะนำแก้ไขจากผู้เชี่ยวชาญ ฟรี!
+      ตอบคำถาม 10 ข้อ รับรายงานวิเคราะห์ความเสี่ยง<br>พร้อมคำแนะนำแก้ไขจากผู้เชี่ยวชาญ <strong>ฟรี!</strong>
     </p>
 
     <div class="hero-features">
       <div class="hero-feature">
-        <div class="hero-feature-icon">🏭</div>
-        <div class="hero-feature-text">วิเคราะห์เฉพาะทาง</div>
+        <div class="hero-feature-icon">📊</div>
+        <div class="hero-feature-title">วิเคราะห์เฉพาะทาง</div>
+        <div class="hero-feature-text">ประเมินความเสี่ยงเชิงลึก</div>
       </div>
       <div class="hero-feature">
-        <div class="hero-feature-icon">📊</div>
-        <div class="hero-feature-text">ผลทันที</div>
+        <div class="hero-feature-icon">📋</div>
+        <div class="hero-feature-title">ผลทันที</div>
+        <div class="hero-feature-text">รู้ผลฟรีทันทีหลังทำแบบทดสอบ</div>
       </div>
       <div class="hero-feature">
         <div class="hero-feature-icon">🔧</div>
-        <div class="hero-feature-text">แนะนำแก้ไข</div>
+        <div class="hero-feature-title">แนะนำแก้ไข</div>
+        <div class="hero-feature-text">แนวทางแก้ไขโดยผู้เชี่ยวชาญ</div>
       </div>
     </div>
 
@@ -999,21 +1009,6 @@ const questions = [
 let currentQ = 0;
 let answers = new Array(questions.length).fill(null);
 
-// ===== RAIN EFFECT =====
-function createRain() {
-  const container = document.getElementById('rainContainer');
-  for (let i = 0; i < 40; i++) {
-    const drop = document.createElement('div');
-    drop.className = 'raindrop';
-    drop.style.left = Math.random() * 100 + '%';
-    drop.style.height = (Math.random() * 30 + 15) + 'px';
-    drop.style.animationDuration = (Math.random() * 1 + 0.8) + 's';
-    drop.style.animationDelay = (Math.random() * 3) + 's';
-    container.appendChild(drop);
-  }
-}
-createRain();
-
 // ===== QUIZ LOGIC =====
 function startQuiz() {
   document.getElementById('heroScreen').style.display = 'none';
@@ -1146,7 +1141,7 @@ function showLeadForm() {
 // ============================================================
 // ⚙️ ตั้งค่า Make.com Webhook URL ตรงนี้
 // ============================================================
-const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/e5etorm8zm2vwqfybjxs33vwadfhccsf';
+const MAKE_WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL';
 // เปลี่ยนเป็น URL จริงจาก Make.com เช่น:
 // const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/xxxxxxxxxxxxx';
 // ============================================================
@@ -1459,10 +1454,10 @@ function showResult() {
     <div class="cta-card">
       <div class="cta-card-title">💬 ต้องการให้ผู้เชี่ยวชาญช่วยดู?</div>
       <div class="cta-card-text">ทีมวิศวกรของเราพร้อมเข้าตรวจสอบหลังคาโรงงาน<br>ให้คำปรึกษา และเสนอแนวทางแก้ไขที่เหมาะสม</div>
-      <button class="btn-cta-line" onclick="window.open('https://line.me/R/ti/p/@astec_official')">
+      <button class="btn-cta-line" onclick="window.open('https://line.me/R/ti/p/@YOUR_LINE_ID')">
         💬 แชทผ่าน LINE
       </button>
-      <button class="btn-cta-call" onclick="window.open('tel:027147564')">
+      <button class="btn-cta-call" onclick="window.open('tel:0XX-XXX-XXXX')">
         📞 โทรหาเรา
       </button>
     </div>
